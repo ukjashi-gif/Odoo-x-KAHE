@@ -1,1 +1,3 @@
-# Odoo-x-KAHE
+function initGlobe() {
+  console.log('Globe initialized');
+}

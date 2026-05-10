@@ -1,0 +1,19 @@
+/* Base Styles */
+
+:root {
+  --gold: #c9a84c;
+  --dark: #050810;
+  --white: #f0eeea;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--dark);
+  color: var(--white);
+  font-family: Arial, sans-serif;
+}

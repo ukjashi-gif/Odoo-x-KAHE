@@ -1,0 +1,3 @@
+function initCursor() {
+  console.log('Cursor initialized');
+}
