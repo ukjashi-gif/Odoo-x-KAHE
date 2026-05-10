@@ -1,0 +1,54 @@
+﻿import { createTrip } from "../services/api.js";
+
+export default function PlanningFlow({ onClose, onComplete }) {
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const trip = {
+      name: form.get("name"),
+      description: form.get("description"),
+      startDate: form.get("startDate"),
+      endDate: form.get("endDate"),
+      destinations: form.get("destinations").split(",").map((item) => item.trim()).filter(Boolean),
+      activities: form.get("activities").split(",").map((item) => item.trim()).filter(Boolean),
+      budgetTier: form.get("budgetTier"),
+      customBudget: Number(form.get("customBudget") || 0),
+      travelers: Number(form.get("travelers") || 1),
+      style: form.get("style")
+    };
+
+    try {
+      const savedTrip = await createTrip(trip);
+      onComplete(savedTrip);
+    } catch {
+      onComplete(trip);
+    }
+  }
+
+  return (
+    <div className="modal-backdrop">
+      <form className="modal" onSubmit={handleSubmit}>
+        <button className="close-btn" type="button" onClick={onClose}>x</button>
+        <p className="section-tag">New Trip</p>
+        <h2>Plan your journey</h2>
+        <label>Trip name<input name="name" required placeholder="European Summer Dream" /></label>
+        <label>Description<textarea name="description" placeholder="Describe your dream journey" /></label>
+        <div className="form-row">
+          <label>Start date<input name="startDate" type="date" required /></label>
+          <label>End date<input name="endDate" type="date" required /></label>
+        </div>
+        <label>Destinations<input name="destinations" required placeholder="Paris, Rome, Barcelona" /></label>
+        <label>Interests<input name="activities" placeholder="Food, Museums, Beaches" /></label>
+        <div className="form-row">
+          <label>Budget<select name="budgetTier" defaultValue="moderate"><option value="budget">Budget</option><option value="moderate">Moderate</option><option value="luxury">Luxury</option></select></label>
+          <label>Amount<input name="customBudget" type="number" placeholder="100000" /></label>
+        </div>
+        <div className="form-row">
+          <label>Travelers<input name="travelers" type="number" min="1" defaultValue="1" /></label>
+          <label>Style<select name="style" defaultValue="solo"><option value="solo">Solo</option><option value="couple">Couple</option><option value="family">Family</option><option value="group">Group</option></select></label>
+        </div>
+        <button className="primary-btn full" type="submit">Launch Dashboard</button>
+      </form>
+    </div>
+  );
+}
