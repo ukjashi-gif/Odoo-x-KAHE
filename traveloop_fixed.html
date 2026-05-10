@@ -1,3 +1,531 @@
-function openModal() {
-  console.log('Modal opened');
-}
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Traveloop ✈️</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/features.css" />
+  <link rel="stylesheet" href="css/modal.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+
+<body>
+
+  <!-- =========================
+       NAVBAR
+  ========================== -->
+
+  <nav>
+
+    <div class="logo">
+      TRAVELOOP
+    </div>
+
+    <ul class="nav-links">
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#screens">Screens</a></li>
+      <li><a href="#timeline">Journey</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button
+        class="btn-outline"
+        data-open-modal="login"
+      >
+        Login
+      </button>
+
+      <button
+        class="btn-primary"
+        onclick="openPlanner()"
+      >
+        Start Planning
+      </button>
+    </div>
+
+  </nav>
+
+
+  <!-- =========================
+       HERO SECTION
+  ========================== -->
+
+  <section id="hero">
+
+    <div class="hero-glow"></div>
+
+    <span class="hero-tag">
+      PREMIUM TRAVEL EXPERIENCE
+    </span>
+
+    <h1 class="hero-title">
+      TRAVELOOP
+    </h1>
+
+    <p class="hero-sub">
+      Plan immersive journeys, organize itineraries,
+      manage travel budgets, and explore the world
+      through a cinematic travel platform.
+    </p>
+
+    <div class="hero-btn-group">
+
+      <button
+        class="btn-primary"
+        onclick="openPlanner()"
+      >
+        Plan Your Trip
+      </button>
+
+      <button
+        class="btn-outline"
+        data-open-modal="signup"
+      >
+        Explore Features
+      </button>
+
+    </div>
+
+    <!-- Globe -->
+
+    <div class="globe-container">
+      <canvas id="globeCanvas"></canvas>
+    </div>
+
+    <!-- Scroll Hint -->
+
+    <div class="scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FEATURES SECTION
+  ========================== -->
+
+  <section id="features">
+
+    <div class="section-header reveal">
+
+      <div class="section-tag">
+        CORE FEATURES
+      </div>
+
+      <h2 class="section-title">
+        EXPERIENCE NEXT LEVEL TRAVEL
+      </h2>
+
+      <div class="divider"></div>
+
+    </div>
+
+
+    <div class="features-grid">
+
+      <!-- Feature 1 -->
+
+      <div class="feature-card reveal">
+
+        <div class="feature-dot"></div>
+
+        <div class="feature-num">01</div>
+
+        <div class="feature-icon">✈️</div>
+
+        <h3 class="feature-name">
+          Smart Trip Planning
+        </h3>
+
+        <p class="feature-desc">
+          Create personalized travel itineraries with destination management,
+          schedules, and intelligent planning workflows.
+        </p>
+
+      </div>
+
+
+      <!-- Feature 2 -->
+
+      <div class="feature-card reveal">
+
+        <div class="feature-dot"></div>
+
+        <div class="feature-num">02</div>
+
+        <div class="feature-icon">💰</div>
+
+        <h3 class="feature-name">
+          Budget Tracking
+        </h3>
+
+        <p class="feature-desc">
+          Manage travel expenses efficiently with live budget monitoring,
+          expense categories, and cost summaries.
+        </p>
+
+      </div>
+
+
+      <!-- Feature 3 -->
+
+      <div class="feature-card reveal">
+
+        <div class="feature-dot"></div>
+
+        <div class="feature-num">03</div>
+
+        <div class="feature-icon">🗺️</div>
+
+        <h3 class="feature-name">
+          Itinerary Builder
+        </h3>
+
+        <p class="feature-desc">
+          Build day-wise travel schedules and organize activities,
+          transportation, and accommodation seamlessly.
+        </p>
+
+      </div>
+
+
+      <!-- Feature 4 -->
+
+      <div class="feature-card reveal">
+
+        <div class="feature-dot"></div>
+
+        <div class="feature-num">04</div>
+
+        <div class="feature-icon">🌌</div>
+
+        <h3 class="feature-name">
+          Interactive Experience
+        </h3>
+
+        <p class="feature-desc">
+          Enjoy immersive animations, custom effects, and cinematic
+          transitions crafted for modern travelers.
+        </p>
+
+      </div>
+
+
+      <!-- Feature 5 -->
+
+      <div class="feature-card reveal">
+
+        <div class="feature-dot"></div>
+
+        <div class="feature-num">05</div>
+
+        <div class="feature-icon">📱</div>
+
+        <h3 class="feature-name">
+          Responsive Design
+        </h3>
+
+        <p class="feature-desc">
+          Optimized for mobile, tablet, and desktop experiences with
+          smooth responsive layouts.
+        </p>
+
+      </div>
+
+
+      <!-- Feature 6 -->
+
+      <div class="feature-card reveal">
+
+        <div class="feature-dot"></div>
+
+        <div class="feature-num">06</div>
+
+        <div class="feature-icon">🔒</div>
+
+        <h3 class="feature-name">
+          Secure Authentication
+        </h3>
+
+        <p class="feature-desc">
+          User-friendly authentication system with login/signup flows
+          and protected planner access.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       SCREENS SECTION
+  ========================== -->
+
+  <section id="screens">
+
+    <div class="section-header reveal">
+
+      <div class="section-tag">
+        APP PREVIEW
+      </div>
+
+      <h2 class="section-title">
+        MODERN USER EXPERIENCE
+      </h2>
+
+    </div>
+
+
+    <div class="screen-tabs">
+
+      <button class="screen-step active">
+        Dashboard
+      </button>
+
+      <button class="screen-step">
+        Planner
+      </button>
+
+      <button class="screen-step">
+        Budget
+      </button>
+
+    </div>
+
+
+    <div class="mockup-container">
+
+      <div class="mock-screen">
+        <h3>Travel Dashboard</h3>
+        <p>Overview of upcoming trips and analytics.</p>
+      </div>
+
+      <div class="mock-screen" style="display:none;">
+        <h3>Trip Planner</h3>
+        <p>Create schedules and organize destinations.</p>
+      </div>
+
+      <div class="mock-screen" style="display:none;">
+        <h3>Budget Tracker</h3>
+        <p>Monitor expenses and optimize travel spending.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       TIMELINE SECTION
+  ========================== -->
+
+  <section id="timeline">
+
+    <div class="section-header reveal">
+
+      <div class="section-tag">
+        USER JOURNEY
+      </div>
+
+      <h2 class="section-title">
+        HOW IT WORKS
+      </h2>
+
+    </div>
+
+
+    <div class="timeline">
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <h3>Create Account</h3>
+        <p>Sign up and personalize your travel preferences.</p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <h3>Plan Your Journey</h3>
+        <p>Build itineraries, manage destinations, and organize schedules.</p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <h3>Track Expenses</h3>
+        <p>Stay within budget using smart financial tools.</p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <h3>Enjoy The Experience</h3>
+        <p>Travel confidently with all details managed in one place.</p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================
+       FOOTER
+  ========================== -->
+
+  <footer id="footer">
+
+    <div class="footer-grid">
+
+      <div>
+        <h2 class="footer-logo">
+          TRAVELOOP
+        </h2>
+
+        <p>
+          Premium cinematic travel planner for modern explorers.
+        </p>
+      </div>
+
+      <div>
+        <h4>Quick Links</h4>
+
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#timeline">Journey</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Hackathon</h4>
+
+        <p>
+          Odoo x KAHE Project Submission
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      © 2026 Traveloop. All rights reserved.
+    </div>
+
+  </footer>
+
+
+  <!-- =========================
+       MODAL
+  ========================== -->
+
+  <div class="modal-overlay">
+
+    <div class="modal">
+
+      <button
+        class="close-btn"
+        data-close-modal
+      >
+        ✕
+      </button>
+
+
+      <!-- LOGIN FORM -->
+
+      <div class="login-form fade-item">
+
+        <h2>Welcome Back</h2>
+
+        <form onsubmit="fakeLogin(event)">
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            required
+          />
+
+          <button class="btn-primary">
+            Login
+          </button>
+
+        </form>
+
+      </div>
+
+
+      <!-- SIGNUP FORM -->
+
+      <div
+        class="signup-form fade-item"
+        style="display:none;"
+      >
+
+        <h2>Create Account</h2>
+
+        <form onsubmit="fakeSignup(event)">
+
+          <input
+            type="text"
+            placeholder="Full Name"
+            required
+          />
+
+          <input
+            type="email"
+            placeholder="Email Address"
+            required
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            required
+          />
+
+          <button class="btn-primary">
+            Create Account
+          </button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- =========================
+       JS FILES
+  ========================== -->
+
+  <script src="js/cursor.js"></script>
+  <script src="js/stars.js"></script>
+  <script src="js/globe.js"></script>
+  <script src="js/modal.js"></script>
+  <script src="js/main.js"></script>
+
+</body>
+</html>
+```
