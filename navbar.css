@@ -1,19 +1,382 @@
-/* Base Styles */
+/* =========================
+   NAVBAR.CSS
+   TRAVELOOP
+========================= */
 
-:root {
-  --gold: #c9a84c;
-  --dark: #050810;
-  --white: #f0eeea;
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px 60px;
+
+  z-index: 1000;
+
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(5,8,16,0.95),
+      rgba(5,8,16,0.65),
+      transparent
+    );
+
+  border-bottom:
+    1px solid rgba(201,168,76,0.08);
+
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    backdrop-filter 0.3s ease;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  background: var(--dark);
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+  font-family: 'Bebas Neue', sans-serif;
+
+  font-size: 2rem;
+  letter-spacing: 4px;
+
   color: var(--white);
-  font-family: Arial, sans-serif;
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.logo::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+
+  width: 0%;
+  height: 2px;
+
+  background: var(--gold);
+
+  transition: width 0.3s ease;
+}
+
+.logo:hover {
+  color: var(--gold);
+
+  transform: translateY(-2px);
+}
+
+.logo:hover::after {
+  width: 100%;
+}
+
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+
+  gap: 38px;
+
+  list-style: none;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links a {
+  position: relative;
+
+  text-decoration: none;
+
+  font-family: 'Space Mono', monospace;
+
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  color: rgba(240,238,234,0.75);
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+/* Hover Line */
+
+.nav-links a::after {
+  content: '';
+
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+
+  width: 0%;
+  height: 1px;
+
+  background: var(--gold);
+
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================
+   NAV ACTIONS
+========================= */
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+
+/* =========================
+   MENU BUTTON
+========================= */
+
+.menu-btn {
+  width: 46px;
+  height: 46px;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  gap: 5px;
+
+  cursor: pointer;
+
+  border:
+    1px solid rgba(201,168,76,0.15);
+
+  background:
+    rgba(255,255,255,0.02);
+
+  transition:
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+.menu-btn:hover {
+  border-color: var(--gold);
+
+  background:
+    rgba(201,168,76,0.05);
+}
+
+.menu-btn span {
+  width: 18px;
+  height: 2px;
+
+  background: var(--white);
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =========================
+   MOBILE NAVIGATION
+========================= */
+
+.mobile-nav {
+  position: fixed;
+
+  top: 0;
+  right: -100%;
+
+  width: 320px;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 120px 40px;
+
+  background:
+    rgba(5,8,16,0.98);
+
+  backdrop-filter: blur(20px);
+
+  z-index: 1200;
+
+  transition: right 0.4s ease;
+}
+
+.mobile-nav.active {
+  right: 0;
+}
+
+.mobile-nav a {
+  text-decoration: none;
+
+  margin-bottom: 30px;
+
+  font-family: 'Bebas Neue', sans-serif;
+
+  font-size: 2rem;
+  letter-spacing: 3px;
+
+  color: var(--white);
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.mobile-nav a:hover {
+  color: var(--gold);
+
+  transform: translateX(8px);
+}
+
+
+/* =========================
+   NAV OVERLAY
+========================= */
+
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+
+  background:
+    rgba(0,0,0,0.6);
+
+  opacity: 0;
+  visibility: hidden;
+
+  z-index: 1100;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* =========================
+   ACTIVE LINK
+========================= */
+
+.nav-links a.active {
+  color: var(--gold);
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+
+/* =========================
+   SCROLL EFFECT
+========================= */
+
+nav.scrolled {
+  background:
+    rgba(5,8,16,0.92);
+
+  backdrop-filter: blur(14px);
+
+  border-bottom:
+    1px solid rgba(201,168,76,0.15);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.25);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 992px) {
+
+  nav {
+    padding: 20px 30px;
+  }
+
+  .nav-links {
+    gap: 24px;
+  }
+
+}
+
+
+@media (max-width: 768px) {
+
+  nav {
+    padding: 18px 22px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-actions {
+    display: none;
+  }
+
+  .menu-btn {
+    display: flex;
+  }
+
+  .logo {
+    font-size: 1.7rem;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  nav {
+    padding: 16px 18px;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+
+  .mobile-nav {
+    width: 100%;
+    padding: 100px 28px;
+  }
+
+  .mobile-nav a {
+    font-size: 1.8rem;
+  }
+
 }
