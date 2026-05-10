@@ -1,1 +1,8 @@
-/* Features section styles go here */
+:root {
+  --gold: #c9a84c;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}/* Features section styles go here */
